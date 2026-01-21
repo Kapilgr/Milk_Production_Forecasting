@@ -16,7 +16,7 @@ def load_sarima_model():
         with open("sarima_model.pkl", "rb") as f:
             return pickle.load(f)
     except FileNotFoundError:
-        st.error("❌ 'sarima_model.pkl' not found.")
+        st.error("'sarima_model.pkl' not found.")
         st.stop()
 
 @st.cache_data
@@ -28,7 +28,7 @@ def load_historical_data():
         df['Date'] = pd.to_datetime(df['Date'])
         return df.sort_values('Date')
     except Exception as e:
-        st.error(f"❌ Could not load 'monthly_milk_production.csv'.")
+        st.error(f" Could not load 'monthly_milk_production.csv'.")
         st.stop()
 
 model_results = load_sarima_model()
